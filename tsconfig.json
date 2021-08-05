@@ -9,6 +9,7 @@
         "sourceMap": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
+        "skipLibCheck": true,
         "lib": ["esnext", "dom"],
         "types": [
             "vite/client",
@@ -26,5 +27,8 @@
         "src/**/*.tsx",
         "src/**/*.vue"
     ],
-    "exclude": ["dist", "node_modules"]
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
 }
