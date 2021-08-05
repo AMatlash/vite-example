@@ -1,5 +1,6 @@
 <template>
     {{ t('hello')}}
+    <router-view />
 </template>
 
 <script setup lang="ts">
