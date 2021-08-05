@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@iconify/json': ^1.1.383
   '@intlify/vite-plugin-vue-i18n': ^2.4.0
   '@types/node': ^16.4.12
   '@typescript-eslint/eslint-plugin': ^4.29.0
@@ -14,6 +15,7 @@ specifiers:
   typescript: ^4.3.5
   vite: ^2.4.4
   vite-plugin-components: ^0.13.2
+  vite-plugin-icons: ^0.6.5
   vite-plugin-pages: ^0.16.0
   vite-plugin-vue-layouts: ^0.3.1
   vue: ^3.1.5
@@ -28,6 +30,7 @@ dependencies:
   vue-router: 4.0.10_vue@3.1.5
 
 devDependencies:
+  '@iconify/json': 1.1.383
   '@intlify/vite-plugin-vue-i18n': 2.4.0_bdfaf14c5541fb1bd751e193a94ac007
   '@types/node': 16.4.12
   '@typescript-eslint/eslint-plugin': 4.29.0_48ea228fa0647506aa803d17f48b59f7
@@ -40,6 +43,7 @@ devDependencies:
   typescript: 4.3.5
   vite: 2.4.4
   vite-plugin-components: 0.13.2_vite@2.4.4
+  vite-plugin-icons: 0.6.5_e8eb63922549290750d111e2692b23dc
   vite-plugin-pages: 0.16.0_a95bb6b02fb0010eec7c5fe32d7277db
   vite-plugin-vue-layouts: 0.3.1_vite@2.4.4
   vue-tsc: 0.2.2_typescript@4.3.5
@@ -129,6 +133,14 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.0:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
+    dev: true
+
+  /@iconify/json-tools/1.0.10:
+    resolution: {integrity: sha512-LFelJDOLZ6JHlmlAkgrvmcu4hpNPB91KYcr4f60D/exzU1eNOb4/KCVHIydGHIQFaOacIOD+Xy+B7P1z812cZg==}
+    dev: true
+
+  /@iconify/json/1.1.383:
+    resolution: {integrity: sha512-gMlPa0DpPisjPm/EOcIgJnAgm3VOZfrae9K+/532tI199Trgqmppz2AUKIErABT65Ix32fzkxbIZMY56sG03Tw==}
     dev: true
 
   /@intlify/bundle-utils/0.2.0_eslint@7.32.0:
@@ -2202,6 +2214,24 @@ packages:
       - supports-color
     dev: true
 
+  /vite-plugin-icons/0.6.5_e8eb63922549290750d111e2692b23dc:
+    resolution: {integrity: sha512-lfePr8juO2ajp0571iLL+9zIoyBD9nSSSHlC4JYXbAeMOJB6WTP+Vdc2gze8yI8JRO+Z0TXCCvvL9bPgvkI4Cg==}
+    peerDependencies:
+      '@iconify/json': '*'
+      '@vue/compiler-sfc': ^3.0.2
+      vue-template-compiler: ^2.6.12
+    peerDependenciesMeta:
+      '@vue/compiler-sfc':
+        optional: true
+      vue-template-compiler:
+        optional: true
+    dependencies:
+      '@iconify/json': 1.1.383
+      '@iconify/json-tools': 1.0.10
+      '@vue/compiler-sfc': 3.1.5_vue@3.1.5
+      vue-template-es2015-compiler: 1.9.1
+    dev: true
+
   /vite-plugin-pages/0.16.0_a95bb6b02fb0010eec7c5fe32d7277db:
     resolution: {integrity: sha512-15DO3/NNuv6DxvudT2RZq8Uf9jSYapoTqu8ypqyb9Uz3DhdwhOEA0D+QdHaWPgMruGaOYU9C1XapZYVJTisd7w==}
     peerDependencies:
@@ -2420,6 +2450,10 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.0.0-beta.15
       vue: 3.1.5
+
+  /vue-template-es2015-compiler/1.9.1:
+    resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}
+    dev: true
 
   /vue-tsc/0.2.2_typescript@4.3.5:
     resolution: {integrity: sha512-91mzfGneWCuF83WTGRI9HA67IBUh5lrhujnFaHKWHQlpQFcBadkmz0BVoGAuJLQILetC5/CrY3is6FGiWFuY4w==}

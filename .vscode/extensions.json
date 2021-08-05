@@ -3,6 +3,7 @@
         "editorconfig.editorconfig",
         "johnsoncodehk.volar",
         "lokalise.i18n-ally",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "antfu.iconify"
     ]
 }

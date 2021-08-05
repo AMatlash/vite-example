@@ -4,7 +4,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Header: typeof import('./src/components/header.vue')['default']
+    'Mdi:alertOutline': typeof import('virtual:vite-icons/mdi/alert-outline')['default']
   }
 }
 
-export { };
+export { }
