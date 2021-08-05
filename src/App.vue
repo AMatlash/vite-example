@@ -1,6 +1,6 @@
 <template>
     {{ t('hello')}}
-    <mdi:alert-outline/>
+    <mdi:alert-outline class="m-3 h-8 w-8"/>
     <router-view />
 </template>
 
