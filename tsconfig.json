@@ -12,7 +12,9 @@
         "lib": ["esnext", "dom"],
         "types": [
             "vite/client",
-            "@types/node"
+            "@types/node",
+            "vite-plugin-pages/client",
+            "vite-plugin-vue-layouts/client"
         ],
         "paths": {
             "~/*": ["src/*"]

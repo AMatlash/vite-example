@@ -1,6 +1,4 @@
-// @ts-ignore
 import generatedRoutes from 'virtual:generated-pages';
-// @ts-ignore
 import { setupLayouts } from 'virtual:generated-layouts';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
