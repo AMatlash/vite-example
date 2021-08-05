@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import { i18n } from '~/i18n';
 import router from '~/router';
@@ -8,4 +8,4 @@ createApp(App)
     .use(i18n)
     .use(router)
     .use(createHead())
-    .mount('#app')
+    .mount('#app');
