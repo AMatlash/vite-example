@@ -7,7 +7,11 @@ import router from '~/router';
 export enum Titles {
     default = 'header.default', // t('header.default')
     makePayment = 'header.makePayment', // t('header.makePayment')
-    addContact = 'header.addContact' // t('header.addContact')
+    selectContact = 'header.selectContact', // t('header.selectContact')
+    newContact = 'header.newContact', // t('header.newContact')
+    selectMethod = 'header.selectMethod', // t('header.selectMethod')
+    newCard = 'header.newCard', // t('header.newCard')
+    newBankAccount = 'header.newBankAccount' // t('header.newBankAccount')
 }
 
 const _title = ref(Titles.default);

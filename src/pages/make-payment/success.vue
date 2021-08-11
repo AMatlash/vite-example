@@ -1,3 +1,3 @@
 <template>
-    [INDEX PAGE]
+    [SUCCESS PAGE]
 </template>

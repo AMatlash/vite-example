@@ -1,5 +1,6 @@
 <template>
-    [MAKE PAYMENT]
+    [NEW METHOD]<br>
+    [CARD | BANK ACCOUNT]
 </template>
 
 <script setup lang="ts">
@@ -12,7 +13,7 @@
         setAddPath
     } = useHeader();
 
-    setTitle(Titles.makePayment); // t('header.makePayment')
-    setBackPath(Routes.none);
+    setTitle(Titles.newCard); // t('header.newCard')
+    setBackPath(Routes.selectMethod);
     setAddPath(Routes.none);
 </script>

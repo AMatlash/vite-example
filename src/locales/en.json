@@ -3,6 +3,11 @@
   "header": {
     "default": "Vite example",
     "makePayment": "Make payment",
-    "addContact": "Add contact"
+    "selectContact": "Select contact",
+    "newContact": "New contact",
+    "selectMethod": "Select method",
+    "newMethod": "New method",
+    "newCard": "New Card",
+    "newBankAccount": "New bank account"
   }
 }
