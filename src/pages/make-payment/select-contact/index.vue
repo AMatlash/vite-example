@@ -1,18 +1,13 @@
 <template>
+    <NavHeader
+        :title="Titles.selectContact"
+        :back-path="Routes.makePayment"
+        :add-path="Routes.newContact"
+    />
     [SELECT CONTACT]
 </template>
 
 <script setup lang="ts">
-    import { useHeader, Titles } from '~/composables/useHeader';
+    import { Titles } from '~/components/NavHeader.vue';
     import { Routes } from '~/router/types';
-
-    const {
-        setTitle,
-        setBackPath,
-        setAddPath
-    } = useHeader();
-
-    setTitle(Titles.selectContact); // t('header.selectContact')
-    setBackPath(Routes.makePayment);
-    setAddPath(Routes.newContact);
 </script>

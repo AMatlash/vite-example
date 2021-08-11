@@ -53,13 +53,12 @@ module.exports = {
 
         // <script setup>
         'vue/script-setup-uses-vars': 'error',
-
-        /* globals: {
-            defineProps: 'readonly',
-            defineEmits: 'readonly',
-            defineExpose: 'readonly',
-            withDefaults: 'readonly'
-        } */
+    },
+    globals: {
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        defineExpose: 'readonly',
+        withDefaults: 'readonly'
     },
     overrides: [
         // Fix no-used-vars when importing ts types & <script setup> vars in .vue files

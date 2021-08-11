@@ -1,19 +1,15 @@
 <template>
+    <NavHeader
+        :title="title"
+        :back-path="Routes.selectMethod"
+    />
     [NEW METHOD]<br>
     [CARD | BANK ACCOUNT]
 </template>
 
 <script setup lang="ts">
-    import { useHeader, Titles } from '~/composables/useHeader';
+    import { Titles } from '~/components/NavHeader.vue';
     import { Routes } from '~/router/types';
 
-    const {
-        setTitle,
-        setBackPath,
-        setAddPath
-    } = useHeader();
-
-    setTitle(Titles.newCard); // t('header.newCard')
-    setBackPath(Routes.selectMethod);
-    setAddPath(Routes.none);
+    const title = Titles.newCard;
 </script>

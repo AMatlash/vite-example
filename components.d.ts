@@ -3,13 +3,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Header: typeof import('./src/components/header.vue')['default']
-    'Mdi:arrowLeft': typeof import('virtual:vite-icons/mdi/arrow-left')['default']
     'Mdi:arrowLeftBold': typeof import('virtual:vite-icons/mdi/arrow-left-bold')['default']
-    'Mdi:arrowLeftBoldCircleOutline': typeof import('virtual:vite-icons/mdi/arrow-left-bold-circle-outline')['default']
-    'Mdi:arrowLeftBoldOutline': typeof import('virtual:vite-icons/mdi/arrow-left-bold-outline')['default']
-    'Mdi:arrowLeftCircleOutline': typeof import('virtual:vite-icons/mdi/arrow-left-circle-outline')['default']
     'Mdi:plusCircle': typeof import('virtual:vite-icons/mdi/plus-circle')['default']
+    NavHeader: typeof import('./src/components/NavHeader.vue')['default']
   }
 }
 

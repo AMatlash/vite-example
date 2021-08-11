@@ -1,18 +1,10 @@
 <template>
+    <NavHeader
+        :title="Titles.makePayment"
+    />
     [MAKE PAYMENT]
 </template>
 
 <script setup lang="ts">
-    import { useHeader, Titles } from '~/composables/useHeader';
-    import { Routes } from '~/router/types';
-
-    const {
-        setTitle,
-        setBackPath,
-        setAddPath
-    } = useHeader();
-
-    setTitle(Titles.makePayment); // t('header.makePayment')
-    setBackPath(Routes.none);
-    setAddPath(Routes.none);
+    import { Titles } from '~/components/NavHeader.vue';
 </script>

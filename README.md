@@ -14,4 +14,4 @@ pnpm dev
 ```
 
 # Note
-I'm using kinda finalised version of `<script setup>` described [here](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md)
+I'm using `<script setup>` SFC syntax described [here](https://v3.vuejs.org/api/sfc-script-setup.html)

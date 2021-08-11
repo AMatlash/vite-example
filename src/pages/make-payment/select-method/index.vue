@@ -1,18 +1,13 @@
 <template>
+    <NavHeader
+        :title="Titles.selectMethod"
+        :back-path="Routes.makePayment"
+        :add-path="Routes.newMethod"
+    />
     [SELECT METHOD]
 </template>
 
 <script setup lang="ts">
-    import { useHeader, Titles } from '~/composables/useHeader';
+    import { Titles } from '~/components/NavHeader.vue';
     import { Routes } from '~/router/types';
-
-    const {
-        setTitle,
-        setBackPath,
-        setAddPath
-    } = useHeader();
-
-    setTitle(Titles.selectMethod); // t('header.selectMethod')
-    setBackPath(Routes.makePayment);
-    setAddPath(Routes.newMethod);
 </script>
