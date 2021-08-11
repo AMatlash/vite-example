@@ -1,15 +1,11 @@
 import generatedRoutes from 'virtual:generated-pages';
 import { setupLayouts } from 'virtual:generated-layouts';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { Routes } from '~/router/types';
 
 const indexRoute = generatedRoutes.find(({ name }) => name === 'index');
 if (indexRoute) {
-    indexRoute.redirect = '/make-payment';
-}
-
-export enum ROUTER_PATHS {
-    null = '',
-    makePayment = '/make-payment',
+    indexRoute.redirect = Routes.makePayment;
 }
 
 const routes = setupLayouts(generatedRoutes) as RouteRecordRaw[];

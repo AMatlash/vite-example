@@ -1,6 +1,8 @@
 {
   "hello": "Hello",
   "header": {
-    "default": "Vite example"
+    "default": "Vite example",
+    "makePayment": "Make payment",
+    "addContact": "Add contact"
   }
 }

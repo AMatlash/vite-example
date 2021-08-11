@@ -1,5 +1,5 @@
 <template>
-    [MAKE PAYMENT]
+    [ADD CONTACT]
 </template>
 
 <script setup lang="ts">
@@ -12,7 +12,7 @@
         setAddPath
     } = useHeader();
 
-    setTitle(Titles.makePayment); // t('header.makePayment')
-    setBackPath(Routes.none);
-    setAddPath(Routes.addContact);
+    setTitle(Titles.addContact); // t('header.addContact')
+    setBackPath(Routes.makePayment);
+    setAddPath(Routes.none);
 </script>
