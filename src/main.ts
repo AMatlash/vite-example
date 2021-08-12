@@ -4,9 +4,11 @@ import { i18n } from '~/i18n';
 import router from '~/router';
 import App from './App.vue';
 import '~/styles/index.css';
+import Maska from 'maska';
 
 createApp(App)
     .use(i18n)
     .use(router)
+    .use(Maska)
     .use(createHead())
     .mount('#app');

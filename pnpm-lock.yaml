@@ -14,6 +14,7 @@ specifiers:
   autoprefixer: ^10.3.1
   eslint: ^7.32.0
   eslint-plugin-vue: ^7.16.0
+  maska: ^1.4.5
   postcss: ^8.3.6
   tailwindcss: ^2.2.7
   typescript: ^4.3.5
@@ -30,6 +31,7 @@ specifiers:
 dependencies:
   '@tailwindcss/forms': 0.3.3_tailwindcss@2.2.7
   '@vueuse/head': 0.6.0_vue@3.2.2
+  maska: 1.4.5
   vue: 3.2.2
   vue-i18n: 9.1.7_vue@3.2.2
   vue-router: 4.0.11_vue@3.2.2
@@ -1830,6 +1832,10 @@ packages:
     dependencies:
       sourcemap-codec: 1.4.8
     dev: true
+
+  /maska/1.4.5:
+    resolution: {integrity: sha512-RTtysWQGipkQNC/Baq4/VsWIh4pAw9TRXDZhqSyrrIaGCXFRkfXORWu7d6Jj1Xbnp7rE0Gnnbwx5ylfLRfCdTA==}
+    dev: false
 
   /merge-source-map/1.1.0:
     resolution: {integrity: sha512-Qkcp7P2ygktpMPh2mCQZaf3jhN6D3Z/qVZHSdWvQ+2Ef5HgRAPBO57A77+ENm0CPx2+1Ce/MYKi3ymqdfuqibw==}

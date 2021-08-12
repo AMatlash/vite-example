@@ -9,20 +9,32 @@
         >
             <template #card>
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.card.name') }}</p>
-                <input type="text" class="form-input rounded h-14 w-full">
+                <input
+                    v-maska="'A* A*'"
+                    class="form-input rounded h-14 w-full"
+                >
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.card.number') }}</p>
-                <input type="number" class="form-input rounded h-14 w-full">
+                <input
+                    v-maska="'#### #### #### ####'"
+                    class="form-input rounded h-14 w-full"
+                >
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.card.expiryDate') }}</p>
-                <input type="date" class="form-input rounded h-14 w-full">
+                <input v-maska="'##/##'" class="form-input rounded h-14 w-full">
             </template>
 
             <template #account>
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.account.name') }}</p>
                 <input type="text" class="form-input rounded h-14 w-full">
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.account.number') }}</p>
-                <input type="number" class="form-input rounded h-14 w-full">
+                <input
+                    class="form-input rounded h-14 w-full"
+                    v-maska="'##########'"
+                >
                 <p class="mb-1 mt-4 pl-1">{{ t('newMethod.account.bsb') }}</p>
-                <input type="number" class="form-input rounded h-14 w-full">
+                <input
+                    class="form-input rounded h-14 w-full"
+                    v-maska="'###-###'"
+                >
             </template>
         </BaseTabs>
     </main>

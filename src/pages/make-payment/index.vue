@@ -14,7 +14,11 @@
             @click="handleSelectMethod"
         />
         <p class="mb-1 mt-4 pl-1">{{ t('makePayment.enterAmount') }}</p>
-        <input type="number" class="form-input rounded h-14 w-full">
+        <input
+            type="number"
+            class="form-input rounded h-14 w-full"
+            v-maska="'#######'"
+        >
     </main>
     <footer class="mt-auto px-8 py-16 bg-white ">
         <BaseButton
