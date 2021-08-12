@@ -6,6 +6,6 @@
     import { useHead } from '@vueuse/head';
 
     useHead({
-        title: 'Vite example',
+        title: 'Vite example'
     });
 </script>

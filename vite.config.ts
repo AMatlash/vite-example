@@ -17,6 +17,7 @@ export default defineConfig({
         ViteIcons(),
         ViteComponents({
             extensions: ['vue'],
+            deep: false,
             globalComponentsDeclaration: true,
             customComponentResolvers: [
                 ViteIconsResolver({

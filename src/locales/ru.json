@@ -1,5 +1,4 @@
 {
-  "hello": "Привет",
   "header": {
     "default": "Vite пример",
     "makePayment": "Новый платёж"

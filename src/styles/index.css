@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 
+html,
+body,
+#app {
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
 @layer base {
     h1 {
         @apply text-2xl;

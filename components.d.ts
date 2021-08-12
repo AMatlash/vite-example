@@ -3,6 +3,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseButton: typeof import('./src/components/BaseButton.vue')['default']
+    BaseTabs: typeof import('./src/components/BaseTabs.vue')['default']
     'Mdi:arrowLeftBold': typeof import('virtual:vite-icons/mdi/arrow-left-bold')['default']
     'Mdi:plusCircle': typeof import('virtual:vite-icons/mdi/plus-circle')['default']
     NavHeader: typeof import('./src/components/NavHeader.vue')['default']

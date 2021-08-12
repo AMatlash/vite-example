@@ -1,13 +1,42 @@
 {
-  "hello": "Hello",
   "header": {
     "default": "Vite example",
     "makePayment": "Make payment",
     "selectContact": "Select contact",
     "newContact": "New contact",
     "selectMethod": "Select method",
-    "newMethod": "New method",
     "newCard": "New Card",
     "newBankAccount": "New bank account"
+  },
+  "makePayment": {
+    "pay": "Pay",
+    "selectContact": "Select contact",
+    "selectMethod": "Select payment method",
+    "enterAmount": "Enter amount"
+  },
+  "newContact": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "save": "Save"
+  },
+  "newMethod": {
+    "card": {
+      "name": "Full name",
+      "number": "Card number",
+      "expiryDate": "Expiry date"
+    },
+    "account": {
+      "name": "Account name",
+      "number": "Account number",
+      "bsb": "BSB"
+    },
+    "save": "Save"
+  },
+  "new": {
+    "method": {
+      "card": "Card",
+      "account": "Bank account"
+    }
   }
 }
