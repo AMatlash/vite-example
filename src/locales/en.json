@@ -38,5 +38,9 @@
       "card": "Card",
       "account": "Bank account"
     }
+  },
+  "success": {
+    "makeAnother": "Make another one",
+    "title": "Payment completed successfully"
   }
 }
