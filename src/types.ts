@@ -1,10 +1,12 @@
 export interface iContact {
+    id: string,
     firstName: string,
     lastName: string,
     email: string
 }
 
 export interface iCard {
+    id: string,
     type: 'card'
     name: string,
     number: string,
@@ -12,7 +14,8 @@ export interface iCard {
 }
 
 export interface iBankAccount {
-    type: 'account'
+    id: string,
+    type: 'account',
     name: string,
     number: string,
     bsb: string

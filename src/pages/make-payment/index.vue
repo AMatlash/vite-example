@@ -3,20 +3,20 @@
         :title="Titles.makePayment"
     />
     <main class="px-8 py-10">
-        <p class="mb-1 pl-1">{{ t('makePayment.selectContact') }}</p>
+        <p class="mb-1 pl-1 font-bold">{{ t('makePayment.selectContact') }}</p>
         <ContactSelect
-            class="form-input rounded h-14"
+            :contact="currentContact"
             @click="handleSelectContact"
         />
-        <p class="mb-1 mt-4 pl-1">{{ t('makePayment.selectMethod') }}</p>
+        <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.selectMethod') }}</p>
         <MethodSelect
-            class="form-input rounded h-14"
+            class="form-input rounded"
             @click="handleSelectMethod"
         />
-        <p class="mb-1 mt-4 pl-1">{{ t('makePayment.enterAmount') }}</p>
+        <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.enterAmount') }}</p>
         <input
             type="number"
-            class="form-input rounded h-14 w-full"
+            class="form-input rounded w-full"
             v-maska="'#######'"
         >
     </main>
@@ -37,8 +37,12 @@
     import MethodSelect from '~/components/forms/MethodSelect.vue';
     import router from '~/router';
     import { Routes } from '~/router/types';
+    import { inject } from 'vue';
+    import { currentContactKey } from '~/pages/make-payment.vue';
 
     const { t } = useI18n();
+
+    const currentContact = inject(currentContactKey);
 
     const handleMakePayment = () => {
         router.push(Routes.successPayment);

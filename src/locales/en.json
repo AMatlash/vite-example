@@ -10,9 +10,9 @@
   },
   "makePayment": {
     "pay": "Pay",
-    "selectContact": "Select contact",
-    "selectMethod": "Select payment method",
-    "enterAmount": "Enter amount"
+    "selectContact": "Contact",
+    "selectMethod": "Payment method",
+    "enterAmount": "Amount"
   },
   "newContact": {
     "firstName": "First name",
@@ -42,5 +42,8 @@
   "success": {
     "makeAnother": "Make another one",
     "title": "Payment completed successfully"
+  },
+  "contactSelect": {
+    "empty": "Select contact"
   }
 }

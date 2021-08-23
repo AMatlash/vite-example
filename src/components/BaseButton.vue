@@ -1,6 +1,12 @@
 <template>
     <button
-        class="h-12 w-full bg-blue-600 text-white text-xl font-bold rounded"
+        :class="[
+            'h-12 w-full bg-gray-400 text-white text-xl font-bold rounded',
+            {
+                'bg-blue-600': !disabled
+            }
+        ]"
+        :disabled="disabled"
         @click="!disabled && emit('click')"
     >
         <slot/>
