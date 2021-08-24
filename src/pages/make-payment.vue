@@ -4,30 +4,54 @@
 
 <script lang="ts">
     import { iContact } from '~/types';
-    import { InjectionKey, provide, reactive, readonly, ref } from 'vue';
+    import { computed, InjectionKey, provide, reactive, readonly, ref } from 'vue';
 
     export const contactsKey: InjectionKey<readonly iContact[]> = Symbol();
     export const currentContactKey: InjectionKey<Readonly<typeof currentContact>> = Symbol();
     export const setCurrentContactKey: InjectionKey<typeof setCurrentContact> = Symbol();
+    export const addContactKey: InjectionKey<typeof addContact> = Symbol();
+    export const deleteContactKey: InjectionKey<typeof deleteContact> = Symbol();
 
-    let currentContact = ref<iContact>();
-    const setCurrentContact = (contact: iContact) => { currentContact.value = contact; };
     const contacts: iContact[] = reactive([]);
+    const setCurrentContact = (id: string) => { currentContactID.value = id; };
+    const addContact = async (contact: iContact) => {
+        contacts.push(contact);
+        fetch(
+            '/api/contacts/new', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                body: JSON.stringify(contact)
+            }
+        );
+    };
+    const deleteContact = async (id: string) => {
+        fetch(`/api/contacts/${id}`, {
+            method: 'DELETE'
+        });
 
-    contacts.push(
-        { id: '100500', firstName: 'Alex', lastName: 'Testov', email: 'test1@yandex.ru' }
-    );
-    contacts.push(
-        { id: '100501', firstName: 'Bruce', lastName: 'Testson', email: 'test2@gmail.com' }
-    );
-    contacts.push(
-        { id: '100502', firstName: 'Carmen', lastName: 'Testillo', email: 'test3@mail.com' }
-    );
-    // currentContact.value = contacts[1];
+        const contact = contacts.find(contact => contact.id === id);
+        if (contact) {
+            const index = contacts.indexOf(contact);
+            if (index !== -1) {
+                contacts.splice(index, 1);
+            }
+        }
+    };
+    const currentContactID = ref<string>();
+    const currentContact = computed(() => contacts.find(({ id }) => id === currentContactID.value));
+
+    fetch('/api/contacts')
+        .then(res => res.json()
+            .then(json => {
+                contacts.push(...json.contacts);
+            })
+        );
 </script>
 
 <script setup lang="ts">
     provide(contactsKey, readonly(contacts));
     provide(currentContactKey, readonly(currentContact));
     provide(setCurrentContactKey, setCurrentContact);
+    provide(addContactKey, addContact);
+    provide(deleteContactKey, deleteContact);
 </script>

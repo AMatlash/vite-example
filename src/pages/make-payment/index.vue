@@ -41,7 +41,6 @@
     import { currentContactKey } from '~/pages/make-payment.vue';
 
     const { t } = useI18n();
-
     const currentContact = inject(currentContactKey);
 
     const handleMakePayment = () => {

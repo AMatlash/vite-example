@@ -10,7 +10,9 @@
             class="mb-4"
             :key="contact.id"
             :contact="contact"
-            @click="handleSelectContact(contact)"
+            controls
+            @select="handleSelectContact(contact)"
+            @delete="handleDeleteContact(contact)"
         />
     </main>
 </template>
@@ -20,17 +22,22 @@
     import { Routes } from '~/router/types';
     import ContactSelect from '~/components/forms/ContactSelect.vue';
     import { inject } from 'vue';
-    import { contactsKey, setCurrentContactKey } from '~/pages/make-payment.vue';
+    import { contactsKey, setCurrentContactKey, deleteContactKey } from '~/pages/make-payment.vue';
     import { iContact } from '~/types';
     import router from '~/router';
 
     const contacts = inject(contactsKey);
     const setCurrentContact = inject(setCurrentContactKey);
-    if (!setCurrentContact) {
-        throw new Error('Could not resolve "setCurrentContactKey"');
+    const deleteContact = inject(deleteContactKey);
+
+    if (!setCurrentContact || !deleteContact) {
+        throw new Error('Could not resolve "select-contact" injections.');
     }
     const handleSelectContact = (contact: iContact) => {
-        setCurrentContact(contact);
+        setCurrentContact(contact.id);
         router.push(Routes.makePayment);
+    };
+    const handleDeleteContact = (contact: iContact) => {
+        deleteContact(contact.id);
     };
 </script>

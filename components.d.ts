@@ -6,8 +6,10 @@ declare module 'vue' {
     BaseButton: typeof import('./src/components/BaseButton.vue')['default']
     BaseTabs: typeof import('./src/components/BaseTabs.vue')['default']
     'Mdi:arrowLeftBold': typeof import('virtual:vite-icons/mdi/arrow-left-bold')['default']
+    'Mdi:cardAccountDetails': typeof import('virtual:vite-icons/mdi/card-account-details')['default']
     'Mdi:checkboxMarkedCircle': typeof import('virtual:vite-icons/mdi/checkbox-marked-circle')['default']
     'Mdi:plusCircle': typeof import('virtual:vite-icons/mdi/plus-circle')['default']
+    'Mdi:trashCanOutline': typeof import('virtual:vite-icons/mdi/trash-can-outline')['default']
     NavHeader: typeof import('./src/components/NavHeader.vue')['default']
   }
 }

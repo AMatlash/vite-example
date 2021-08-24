@@ -1,5 +1,5 @@
 <template>
-    <header class="sticky top-0 h-14 py-3 px-10 bg-blue-500 text-white">
+    <header class="sticky top-0 h-14 py-3 px-10 bg-blue-500 text-white z-10">
         <mdi:arrow-left-bold
             v-if="showBackIcon"
             class="absolute top-3 left-2 w-8 h-8 inline"

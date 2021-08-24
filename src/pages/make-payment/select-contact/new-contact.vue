@@ -25,7 +25,7 @@
     </main>
     <footer class="mt-auto px-8 py-16 bg-white ">
         <BaseButton
-            :disabled="filled"
+            :disabled="!filled"
             @click="handleSaveContact"
         >
             {{ t('newContact.save') }}
@@ -34,25 +34,33 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, ref } from 'vue';
+    import { computed, inject, ref } from 'vue';
     import { useI18n } from 'vue-i18n';
     import { Titles } from '~/components/NavHeader.vue';
+    import { addContactKey } from '~/pages/make-payment.vue';
     import router from '~/router';
     import { Routes } from '~/router/types';
-    import { iContact } from '~/types';
+    import { v4 as uuid } from 'uuid';
+
     const { t } = useI18n();
     const firstName = ref('');
     const lastName = ref('');
     const email = ref('');
 
-    const filled = computed(() => !firstName.value || !lastName.value || !email.value);
+    const addContact = inject(addContactKey);
+    if (!addContact) {
+        throw new Error('Could not resolve "addContact"');
+    }
+
+    const filled = computed(() => !!firstName.value && !!lastName.value && !!email.value);
     const handleSaveContact = () => {
-        if (!filled.value) {
-            /* const contact: iContact = {
+        if (filled.value) {
+            addContact({
+                id: uuid(),
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: email.value
-            }; */
+            });
             router.push(Routes.selectContact);
         }
     };
