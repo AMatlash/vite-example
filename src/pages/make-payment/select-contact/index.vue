@@ -14,6 +14,9 @@
             @select="handleSelectContact(contact)"
             @delete="handleDeleteContact(contact)"
         />
+        <div v-if="!contacts?.length" class="font-bold">
+            {{ t('contactSelect.notFound') }}
+        </div>
     </main>
 </template>
 
@@ -25,7 +28,9 @@
     import { contactsKey, setCurrentContactKey, deleteContactKey } from '~/pages/make-payment.vue';
     import { iContact } from '~/types';
     import router from '~/router';
+    import { useI18n } from 'vue-i18n';
 
+    const { t } = useI18n();
     const contacts = inject(contactsKey);
     const setCurrentContact = inject(setCurrentContactKey);
     const deleteContact = inject(deleteContactKey);

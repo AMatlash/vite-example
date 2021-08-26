@@ -6,12 +6,12 @@
                 :key="index"
                 class="h-10 w-1/2 font-bold"
                 :class="{
-                    'bg-blue-600 text-white': tab.value === currentTab,
-                    'bg-gray-300 text-gray-700': tab.value !== currentTab
+                    'bg-blue-600 text-white': tab.name === currentTab,
+                    'bg-gray-300 text-gray-700': tab.name !== currentTab
                 }"
                 @click="handleSelectTab(tab)"
             >
-                {{ tab.name.value }}
+                {{ tab.title.value }}
             </button>
         </nav>
     </div>
@@ -22,22 +22,23 @@
 
 <script lang="ts">
     export interface iTab {
-        name: ComputedRef<string>,
-        value: string
+        title: ComputedRef<string>,
+        name: string
     }
 </script>
 
 <script setup lang="ts">
-    import { ComputedRef, ref } from 'vue';
+    import { ComputedRef } from 'vue';
 
-    interface Props {
-        tabs: iTab[]
-    }
+    const props = defineProps<{
+        tabs: iTab[],
+        currentTab: string
+    }>();
+    const emit = defineEmits<{
+        (e: 'update:currentTab', tabName: string): string
+    }>();
 
-    const props = defineProps<Props>();
-
-    const currentTab = ref(props.tabs[0].value);
     const handleSelectTab = (tab: iTab) => {
-        currentTab.value = tab.value;
+        emit('update:currentTab', tab.name);
     };
 </script>

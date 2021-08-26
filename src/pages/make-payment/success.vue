@@ -14,13 +14,21 @@
 </template>
 
 <script setup lang="ts">
+    import { inject } from 'vue';
     import { useI18n } from 'vue-i18n';
     import router from '~/router';
     import { Routes } from '~/router/types';
+    import { clearMakePaymentFormKey } from '../make-payment.vue';
 
     const { t } = useI18n();
 
+    const clearMakePaymentForm = inject(clearMakePaymentFormKey);
+    if (!clearMakePaymentForm) {
+        throw new Error('Could not resolve "clearMakePaymentForm"');
+    }
+
     const handleMakeAnother = () => {
+        clearMakePaymentForm();
         router.push(Routes.makePayment);
     };
 </script>

@@ -4,11 +4,18 @@
 declare module 'vue' {
   export interface GlobalComponents {
     BaseButton: typeof import('./src/components/BaseButton.vue')['default']
+    BaseInput: typeof import('./src/components/BaseInput.vue')['default']
     BaseTabs: typeof import('./src/components/BaseTabs.vue')['default']
     'Mdi:arrowLeftBold': typeof import('virtual:vite-icons/mdi/arrow-left-bold')['default']
     'Mdi:cardAccountDetails': typeof import('virtual:vite-icons/mdi/card-account-details')['default']
+    'Mdi:cash': typeof import('virtual:vite-icons/mdi/cash')['default']
+    'Mdi:cash100': typeof import('virtual:vite-icons/mdi/cash100')['default']
+    'Mdi:cashRegister': typeof import('virtual:vite-icons/mdi/cash-register')['default']
     'Mdi:checkboxMarkedCircle': typeof import('virtual:vite-icons/mdi/checkbox-marked-circle')['default']
+    'Mdi:creditCard': typeof import('virtual:vite-icons/mdi/credit-card')['default']
+    'Mdi:dotsHorizontal': typeof import('virtual:vite-icons/mdi/dots-horizontal')['default']
     'Mdi:plusCircle': typeof import('virtual:vite-icons/mdi/plus-circle')['default']
+    'Mdi:receipt': typeof import('virtual:vite-icons/mdi/receipt')['default']
     'Mdi:trashCanOutline': typeof import('virtual:vite-icons/mdi/trash-can-outline')['default']
     NavHeader: typeof import('./src/components/NavHeader.vue')['default']
   }

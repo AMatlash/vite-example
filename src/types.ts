@@ -10,7 +10,7 @@ export interface iCard {
     type: 'card'
     name: string,
     number: string,
-    expiryDate: Date
+    expiryDate: string
 }
 
 export interface iBankAccount {

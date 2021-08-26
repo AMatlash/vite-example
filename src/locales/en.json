@@ -6,7 +6,8 @@
     "newContact": "New contact",
     "selectMethod": "Select method",
     "newCard": "New Card",
-    "newBankAccount": "New bank account"
+    "newBankAccount": "New bank account",
+    "newPaymentMethod": "New payment method"
   },
   "makePayment": {
     "pay": "Pay",
@@ -44,6 +45,15 @@
     "title": "Payment completed successfully"
   },
   "contactSelect": {
-    "empty": "Select contact"
+    "empty": "Select contact",
+    "notFound": "Contacts not found"
+  },
+  "methodSelect": {
+    "empty": "Select payment method",
+    "accounts": "Bank accounts",
+    "cards": "Credit/debit cards",
+    "notFoundCards": "Cards not found",
+    "notFoundAccounts": "Bank accounts not found",
+    "notFound": "Payment methods not found"
   }
 }

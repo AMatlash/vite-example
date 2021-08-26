@@ -25,8 +25,7 @@
         selectContact = 'header.selectContact', // t('header.selectContact')
         newContact = 'header.newContact', // t('header.newContact')
         selectMethod = 'header.selectMethod', // t('header.selectMethod')
-        newCard = 'header.newCard', // t('header.newCard')
-        newBankAccount = 'header.newBankAccount' // t('header.newBankAccount')
+        newPaymentMethod = 'header.newPaymentMethod', // t('header.newPaymentMethod')
     }
 </script>
 

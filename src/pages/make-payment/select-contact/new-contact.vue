@@ -4,24 +4,18 @@
         :back-path="Routes.selectContact"
     />
     <main class="px-8 py-10">
-        <p class="mb-1 pl-1">{{ t('newContact.firstName') }}</p>
-        <input
-            class="form-input rounded h-14 w-full"
-            type="text"
-            v-model="firstName"
-        >
-        <p class="mb-1 mt-4 pl-1">{{ t('newContact.lastName') }}</p>
-        <input
-            class="form-input rounded h-14 w-full"
-            type="text"
-            v-model="lastName"
-        >
-        <p class="mb-1 mt-4 pl-1">{{ t('newContact.email') }}</p>
-        <input
-            class="form-input rounded h-14 w-full"
-            type="text"
-            v-model="email"
-        >
+        <form>
+            <p class="mb-1 pl-1">{{ t('newContact.firstName') }}</p>
+            <BaseInput v-model="firstName"/>
+            <p class="mb-1 mt-4 pl-1">{{ t('newContact.lastName') }}</p>
+            <BaseInput v-model="lastName"/>
+            <p class="mb-1 mt-4 pl-1">{{ t('newContact.email') }}</p>
+            <BaseInput
+                v-model="email"
+                type="email"
+                @keydown="handleEnter"
+            />
+        </form>
     </main>
     <footer class="mt-auto px-8 py-16 bg-white ">
         <BaseButton
@@ -51,6 +45,12 @@
     if (!addContact) {
         throw new Error('Could not resolve "addContact"');
     }
+
+    const handleEnter = (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            handleSaveContact();
+        }
+    };
 
     const filled = computed(() => !!firstName.value && !!lastName.value && !!email.value);
     const handleSaveContact = () => {
