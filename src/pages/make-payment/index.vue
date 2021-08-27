@@ -1,42 +1,44 @@
 <template>
-    <NavHeader
-        :title="Titles.makePayment"
-    />
-    <main class="px-8 py-10">
-        <form @submit.prevent="handleMakePayment">
-            <p class="mb-1 pl-1 font-bold">{{ t('makePayment.selectContact') }}</p>
-            <ContactSelect
-                :contact="currentContact"
-                @click="handleSelectContact"
-            />
-            <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.selectMethod') }}</p>
-            <MethodSelect
-                :method="currentMethod"
-                @click="handleSelectMethod"
-            />
-            <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.enterAmount') }}</p>
-            <BaseInput
-                inputmode="numeric"
-                class="form-input rounded w-full"
-                v-maska="[
-                    '###',
-                    '# ###',
-                    '## ###',
-                    '### ###',
-                    '# ### ###'
-                ]"
-                v-model="amount"
-            />
-        </form>
-    </main>
-    <footer class="mt-auto px-8 py-16 bg-white ">
-        <BaseButton
-            :disabled="!filled"
-            @click="handleMakePayment"
-        >
-            {{ t('makePayment.pay') }}
-        </BaseButton>
-    </footer>
+    <div class="w-full">
+        <NavHeader
+            :title="Titles.makePayment"
+        />
+        <main class="px-8 py-10">
+            <form @submit.prevent="handleMakePayment">
+                <p class="mb-1 pl-1 font-bold">{{ t('makePayment.selectContact') }}</p>
+                <ContactSelect
+                    :contact="currentContact"
+                    @click="handleSelectContact"
+                />
+                <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.selectMethod') }}</p>
+                <MethodSelect
+                    :method="currentMethod"
+                    @click="handleSelectMethod"
+                />
+                <p class="mb-1 mt-4 pl-1 font-bold">{{ t('makePayment.enterAmount') }}</p>
+                <BaseInput
+                    inputmode="numeric"
+                    class="form-input rounded w-full"
+                    v-maska="[
+                        '###',
+                        '# ###',
+                        '## ###',
+                        '### ###',
+                        '# ### ###'
+                    ]"
+                    v-model="amount"
+                />
+            </form>
+        </main>
+        <footer class="mt-auto px-8 py-16 bg-white ">
+            <BaseButton
+                :disabled="!filled"
+                @click="handleMakePayment"
+            >
+                {{ t('makePayment.pay') }}
+            </BaseButton>
+        </footer>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -46,7 +48,7 @@
     import MethodSelect from '~/components/forms/MethodSelect.vue';
     import router from '~/router';
     import { Routes } from '~/router/types';
-    import { computed, inject, ref } from 'vue';
+    import { computed, inject, } from 'vue';
     import { acceptPaymentKey, amountKey, currentContactKey, currentMethodKey } from '~/pages/make-payment.vue';
 
     const { t } = useI18n();

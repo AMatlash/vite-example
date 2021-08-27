@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="flex justify-center w-full">
+        <nav class="flex justify-center w-full h-auto">
             <button
                 v-for="(tab, index) in tabs"
                 :key="index"
@@ -14,10 +14,30 @@
                 {{ tab.title.value }}
             </button>
         </nav>
+        <section class="relative">
+            <transition :name="'fade'">
+                <div :key="currentTab" class="w-full">
+                    <slot :name="currentTab"/>
+                </div>
+            </transition>
+            <!-- <template
+                v-for="(tab, index) in tabs"
+                :key="index"
+            >
+                <transition :name="tab.name === currentTab ? 'fade' : 'fade2' ">
+                    <div
+                        v-if="tab.name === currentTab"
+                        class="w-full relative top-4"
+                        :class="[{
+                            'top-0': true
+                        }]"
+                    >
+                        <slot :name="currentTab"/>
+                    </div>
+                </transition>
+            </template> -->
+        </section>
     </div>
-    <section>
-        <slot :name="currentTab"/>
-    </section>
 </template>
 
 <script lang="ts">

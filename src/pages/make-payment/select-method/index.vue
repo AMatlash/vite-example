@@ -1,38 +1,40 @@
 <template>
-    <NavHeader
-        :title="Titles.selectMethod"
-        :back-path="Routes.makePayment"
-        :add-path="Routes.newMethod"
-    />
-    <main  class="px-8 py-10">
-        <p class="mb-2 font-bold">{{ t('methodSelect.cards') }}</p>
-        <MethodSelect
-            v-for="method in cards"
-            class="mb-4"
-            :key="method.id"
-            :method="method"
-            controls
-            @select="handleSelectMethod(method)"
-            @delete="handleDeleteMethod(method)"
+    <div class="w-full">
+        <NavHeader
+            :title="Titles.selectMethod"
+            :back-path="Routes.makePayment"
+            :add-path="Routes.newMethod"
         />
-        <div v-if="!cards?.length">
-            {{ t('methodSelect.notFoundCards') }}
-        </div>
+        <main  class="px-8 py-10">
+            <p class="mb-2 font-bold">{{ t('methodSelect.cards') }}</p>
+            <MethodSelect
+                v-for="method in cards"
+                class="mb-4"
+                :key="method.id"
+                :method="method"
+                controls
+                @select="handleSelectMethod(method)"
+                @delete="handleDeleteMethod(method)"
+            />
+            <div v-if="!cards?.length">
+                {{ t('methodSelect.notFoundCards') }}
+            </div>
 
-        <p class="mt-6 mb-2 font-bold">{{ t('methodSelect.accounts') }}</p>
-        <MethodSelect
-            v-for="method in accounts"
-            class="mb-4"
-            :key="method.id"
-            :method="method"
-            controls
-            @select="handleSelectMethod(method)"
-            @delete="handleDeleteMethod(method)"
-        />
-        <div v-if="!accounts?.length">
-            {{ t('methodSelect.notFoundAccounts') }}
-        </div>
-    </main>
+            <p class="mt-6 mb-2 font-bold">{{ t('methodSelect.accounts') }}</p>
+            <MethodSelect
+                v-for="method in accounts"
+                class="mb-4"
+                :key="method.id"
+                :method="method"
+                controls
+                @select="handleSelectMethod(method)"
+                @delete="handleDeleteMethod(method)"
+            />
+            <div v-if="!accounts?.length">
+                {{ t('methodSelect.notFoundAccounts') }}
+            </div>
+        </main>
+    </div>
 </template>
 
 <script setup lang="ts">

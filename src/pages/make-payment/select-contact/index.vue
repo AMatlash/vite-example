@@ -1,23 +1,25 @@
 <template>
-    <NavHeader
-        :title="Titles.selectContact"
-        :back-path="Routes.makePayment"
-        :add-path="Routes.newContact"
-    />
-    <main  class="px-8 py-10">
-        <ContactSelect
-            v-for="contact in contacts"
-            class="mb-4"
-            :key="contact.id"
-            :contact="contact"
-            controls
-            @select="handleSelectContact(contact)"
-            @delete="handleDeleteContact(contact)"
+    <div class="w-full">
+        <NavHeader
+            :title="Titles.selectContact"
+            :back-path="Routes.makePayment"
+            :add-path="Routes.newContact"
         />
-        <div v-if="!contacts?.length" class="font-bold">
-            {{ t('contactSelect.notFound') }}
-        </div>
-    </main>
+        <main  class="px-8 py-10">
+            <ContactSelect
+                v-for="contact in contacts"
+                class="mb-4"
+                :key="contact.id"
+                :contact="contact"
+                controls
+                @select="handleSelectContact(contact)"
+                @delete="handleDeleteContact(contact)"
+            />
+            <div v-if="!contacts?.length" class="font-bold">
+                {{ t('contactSelect.notFound') }}
+            </div>
+        </main>
+    </div>
 </template>
 
 <script setup lang="ts">
