@@ -73,7 +73,8 @@
     import { Routes } from '~/router/types';
     import router from '~/router';
     import { useI18n } from 'vue-i18n';
-    import { computed, inject, ref } from 'vue';
+    import {saveDraft, getDraft, clearDraft} from '~/resources/drafts';
+    import { computed, inject, ref, unref, watch } from 'vue';
     import { iTab } from '~/components/BaseTabs.vue';
     import { addMethodKey } from '~/pages/make-payment.vue';
     import { v4 as uuid } from 'uuid';
@@ -94,6 +95,30 @@
     const bankName = ref('');
     const bankNumber = ref('');
     const bankBSB = ref('');
+
+    getDraft('newMethod')
+        .then((response: any) => {
+            if (response.currentTabName) currentTabName.value = response.currentTabName;
+            cardName.value = response.cardName || '';
+            cardNumber.value = response.cardNumber || '';
+            cardDate.value = response.cardDate || '';
+            bankName.value = response.bankName || '';
+            bankNumber.value = response.bankNumber || '';
+            bankBSB.value = response.bankBSB || '';
+        });
+
+    watch(
+        [currentTabName, cardName, cardNumber, cardDate, bankName, bankNumber, bankBSB],
+        () => saveDraft('newMethod', {
+            currentTabName: currentTabName.value,
+            cardName: cardName.value,
+            cardNumber: cardNumber.value,
+            cardDate: cardDate.value,
+            bankName: bankName.value,
+            bankNumber: bankNumber.value,
+            bankBSB: bankBSB.value
+        })
+    );
 
     const handleEnter = (e: KeyboardEvent) => {
         if (e.key === 'Enter') {
@@ -136,6 +161,7 @@
                     bsb: bankBSB.value
                 });
             }
+            clearDraft('newMethod');
             router.push(Routes.selectMethod);
         } 
     };

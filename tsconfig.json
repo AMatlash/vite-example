@@ -26,8 +26,7 @@
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "components.d.ts",
-        "src/server.js"
+        "components.d.ts"
     ],
     "exclude": [
         "dist",

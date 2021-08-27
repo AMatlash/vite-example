@@ -28,8 +28,9 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, inject, ref } from 'vue';
+    import { computed, inject, ref, watch } from 'vue';
     import { useI18n } from 'vue-i18n';
+    import {saveDraft, getDraft, clearDraft} from '~/resources/drafts';
     import { Titles } from '~/components/NavHeader.vue';
     import { addContactKey } from '~/pages/make-payment.vue';
     import router from '~/router';
@@ -40,6 +41,22 @@
     const firstName = ref('');
     const lastName = ref('');
     const email = ref('');
+
+    getDraft('newContact')
+        .then((response: any) => {
+            firstName.value = response.firstName || '';
+            lastName.value = response.lastName || '';
+            email.value = response.email || '';
+        });
+
+    watch(
+        [firstName, lastName, email],
+        () => saveDraft('newContact', {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value
+        })
+    );
 
     const addContact = inject(addContactKey);
     if (!addContact) {
@@ -61,6 +78,7 @@
                 lastName: lastName.value,
                 email: email.value
             });
+            clearDraft('newContact');
             router.push(Routes.selectContact);
         }
     };

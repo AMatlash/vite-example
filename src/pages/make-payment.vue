@@ -4,7 +4,8 @@
 
 <script lang="ts">
     import { iContact, iMethod } from '~/types';
-    import { computed, InjectionKey, provide, reactive, readonly, ref } from 'vue';
+    import { computed, InjectionKey, provide, reactive, readonly, ref, watch } from 'vue';
+    import {saveDraft, getDraft, clearDraft} from '~/resources/drafts';
 
     /* contacts */
     export const contactsKey: InjectionKey<readonly iContact[]> = Symbol();
@@ -17,7 +18,7 @@
     const currentContactID = ref<string>();
     const currentContact = computed(() => contacts.find(({ id }) => id === currentContactID.value));
 
-    const setCurrentContact = (id: string) => { currentContactID.value = id; };
+    const setCurrentContact = (id: string) => currentContactID.value = id;
     const addContact = async (contact: iContact) => {
         contacts.push(contact);
         fetch(
@@ -41,15 +42,8 @@
             }
         }
     };
-
-    fetch('/api/contacts')
-        .then(res => res.json()
-            .then(json => {
-                contacts.push(...json.contacts);
-            })
-        );
     
-    /* methods */
+    /* payment methods */
     export const methodsKey: InjectionKey<readonly iMethod[]> = Symbol();
     export const currentMethodKey: InjectionKey<typeof currentMethod> = Symbol();
     export const setCurrentMethodKey: InjectionKey<typeof setCurrentMethod> = Symbol();
@@ -85,6 +79,34 @@
         }
     };
 
+    /* Other form  */
+    export const amountKey: InjectionKey<typeof amount> = Symbol();
+    export const acceptPaymentKey: InjectionKey<typeof acceptPayment> = Symbol();
+    export const clearMakePaymentFormKey: InjectionKey<typeof clearMakePaymentForm> = Symbol();
+    const amount = ref('');
+    const acceptPayment = async () => { /* Collect & send data */ };
+    const clearMakePaymentForm = () => {
+        amount.value = '';
+        currentContactID.value = '';
+        currentMethodID.value = '';
+        clearDraft('makePayment');
+    };
+
+    /* fetches */
+    getDraft('makePayment')
+        .then((response: any)=> {
+            amount.value = response.amount || '';
+            setCurrentContact(response.currentContactID || '');
+            setCurrentMethod(response.currentMethodID || '');
+        });
+
+    fetch('/api/contacts')
+        .then(res => res.json()
+            .then(json => {
+                contacts.push(...json.contacts);
+            })
+        );
+
     fetch('/api/methods')
         .then(res => res.json()
             .then(json => {
@@ -92,19 +114,7 @@
             })
         );
 
-    /* Other form  */
-    export const amountKey: InjectionKey<typeof amount> = Symbol();
-    export const acceptPaymentKey: InjectionKey<typeof acceptPayment> = Symbol();
-    export const clearMakePaymentFormKey: InjectionKey<typeof clearMakePaymentForm> = Symbol();
-    const amount = ref('');
-    const acceptPayment = async () => {
-        // Collect & send some data
-    };
-    const clearMakePaymentForm = () => {
-        amount.value = '';
-        currentContactID.value = '';
-        currentMethodID.value = '';
-    };
+
 </script>
 
 <script setup lang="ts">
@@ -123,4 +133,13 @@
     provide(amountKey, amount);
     provide(clearMakePaymentFormKey, clearMakePaymentForm);
     provide(acceptPaymentKey, acceptPayment);
+    
+    watch(
+        [amount, currentContactID, currentMethodID],
+        () => saveDraft('makePayment', {
+            amount: amount.value,
+            currentContactID: currentContactID.value,
+            currentMethodID: currentMethodID.value
+        })
+    );
 </script>
