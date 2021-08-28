@@ -11,7 +11,24 @@ if (indexRoute) {
 const routes = setupLayouts(generatedRoutes) as RouteRecordRaw[];
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        return { top: 0 };
+    },
+});
+
+router.afterEach((to, from) => {
+    const toDepth = to.path.split('/').length;
+    const fromDepth = from.path.split('/').length;
+
+    if (to.name === 'make-payment-success') {
+        to.meta.transitionName = 'slide-top';
+    } else if (from.name === 'make-payment-success') {
+        to.meta.transitionName = 'slide-bottom';
+    } else {
+        to.meta.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+    }
+
 });
 
 export default router;

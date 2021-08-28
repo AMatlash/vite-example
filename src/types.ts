@@ -22,3 +22,10 @@ export interface iBankAccount {
 }
 
 export type iMethod = iCard | iBankAccount;
+
+
+export enum Transitions {
+    slideLeft = 'slide-left',
+    slideRight = 'slide-right',
+    none = ''
+}

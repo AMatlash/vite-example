@@ -15,27 +15,11 @@
             </button>
         </nav>
         <section class="relative">
-            <transition :name="'fade'">
+            <transition :name="transitionName">
                 <div :key="currentTab" class="w-full">
                     <slot :name="currentTab"/>
                 </div>
             </transition>
-            <!-- <template
-                v-for="(tab, index) in tabs"
-                :key="index"
-            >
-                <transition :name="tab.name === currentTab ? 'fade' : 'fade2' ">
-                    <div
-                        v-if="tab.name === currentTab"
-                        class="w-full relative top-4"
-                        :class="[{
-                            'top-0': true
-                        }]"
-                    >
-                        <slot :name="currentTab"/>
-                    </div>
-                </transition>
-            </template> -->
         </section>
     </div>
 </template>
@@ -48,7 +32,8 @@
 </script>
 
 <script setup lang="ts">
-    import { ComputedRef } from 'vue';
+    import { computed, ComputedRef, ref } from 'vue';
+    import { Transitions } from '~/types';
 
     const props = defineProps<{
         tabs: iTab[],
@@ -58,7 +43,17 @@
         (e: 'update:currentTab', tabName: string): string
     }>();
 
+    const tabNames = computed(() => props.tabs.map(({ name }) => name));
+    const transitionName = ref(Transitions.none);
+
     const handleSelectTab = (tab: iTab) => {
+        const currrentIndex = tabNames.value.indexOf(props.currentTab);
+        const newIndex = props.tabs.indexOf(tab);
+        if (newIndex > currrentIndex) {
+            transitionName.value = Transitions.slideLeft;
+        } else {
+            transitionName.value = Transitions.slideRight;
+        }
         emit('update:currentTab', tab.name);
     };
 </script>

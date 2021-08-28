@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full">
+    <div class="w-full bg-white">
         <main class="px-8 py-24">
             <mdi:checkbox-marked-circle class="h-24 w-24 mx-auto text-blue-600"/>
             <h1 class="text-center text-3xl my-3">{{ t('success.title') }}</h1>

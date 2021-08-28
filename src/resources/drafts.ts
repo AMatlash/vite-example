@@ -1,7 +1,6 @@
 const drafts = JSON.parse(localStorage.getItem('drafts') || '{}');
 const _saveDrafts = () => {
     localStorage.setItem('drafts', JSON.stringify(drafts));
-    console.log('Drafts:', drafts);
 };
 
 let draftsDebounceTimeout: ReturnType<typeof setTimeout>;

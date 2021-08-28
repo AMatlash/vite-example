@@ -43,9 +43,8 @@ body,
 
 .slide-left-enter-active,
 .slide-left-leave-active {
-    transition: transform 5s ease;
+    transition: transform 0.3s ease;
 }
-
 .slide-left-enter-from {
     position: absolute;
     transform: translate3d(100vw, 0, 0);
@@ -57,9 +56,8 @@ body,
 
 .slide-right-enter-active,
 .slide-right-leave-active {
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
-
 .slide-right-enter-from {
     position: absolute;
     transform: translate3d(-100vw, 0, 0);
@@ -67,4 +65,35 @@ body,
 .slide-right-leave-to {
     position: absolute;
     transform: translate3d(100vw, 0, 0);
+}
+
+.slide-bottom-enter-active {
+    transition: transform 0.5s ease;
+}
+.slide-bottom-leave-active {
+    z-index: 100;
+    transition: transform 0.5s ease;
+}
+.slide-bottom-enter-from {
+    position: absolute;
+}
+.slide-bottom-leave-to {
+    position: absolute;
+    transform: translate3d(0, 100vh, 0);
+}
+
+.slide-top-enter-active {
+    z-index: 100;
+    transition: transform .5s ease;
+}
+.slide-top-leave-active {
+    transition: transform .5s ease;
+}
+.slide-top-enter-from {
+    position: absolute;
+    z-index: 20;
+    transform: translate3d(0, 100vh, 0);
+}
+.slide-top-leave-to {
+    position: absolute;
 }
