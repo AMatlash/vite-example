@@ -2,7 +2,8 @@
 
 - Stores data locally via mirageJS API.
 - Keeps current page and forms state in local storage.
-- Shows animations between pages
+- Shows animations between pages.
+- Not optimized for desktop/tablet.
 
 ## Prewiev
 Latest Netlify deploy:
