@@ -5,6 +5,7 @@ import router from '~/router';
 import App from './App.vue';
 import '~/styles/index.css';
 import Maska from 'maska';
+// @ts-ignore
 import { makeServer } from './server';
 
 makeServer();
